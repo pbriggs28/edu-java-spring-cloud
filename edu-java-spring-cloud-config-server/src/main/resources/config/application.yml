@@ -1,0 +1,75 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/pbriggs28/edu-java-spring-cloud-config-server-props
+          repos:
+            local:
+              
+              # If any of these repos are marked as clone-on-start and they are not found, startup fails
+              # If not and the repo cannot be found at runtime, it will skip it and move to the next matching repo
+              
+              pattern:
+#                - '*/local'
+                      # The local profile is the ONLY defined profile
+                        # Matches:
+                            # local
+                        # Non-Matches:
+                            # dev
+                            # local,dev
+                            # dev,local
+                            # preffixedlocal
+                            # localsuffixed
+#                - '*/local*'
+                      # The local profile is the highest (first) defined profile
+                        # Matches:
+                            # local
+                            # local,dev
+                            # localsuffixed
+                        # Non-Matches:
+                            # dev
+                            # dev,local
+                            # preffixedlocal
+#                - '*/*local'
+                      # The local profile is the lowest (last) priority profile
+                        # Matches:
+                            # local
+                            # dev,local
+                            # preffixedlocal
+                        # Non-Matches:
+                            # dev
+                            # local,dev
+                            # dev,local,otherprof
+                            # localsuffixed
+                - '*/*local*'
+                      # The local profile is active
+                        # Matches:
+                            # local
+                            # dev,local
+                            # local,dev
+                            # dev,local,otherprof
+                            # preffixedlocal
+                            # localsuffixed
+                        # Non-Matches:
+                            # dev
+              uri: file:dev/props-repo
+#              clone-on-start: true
+            prod:
+              pattern: '*/prod'
+              uri: https://github.com/pbriggs28/edu-java-spring-cloud-config-server-props
+#              clone-on-start: true
+            dev:
+              pattern: '*/*'
+              uri: https://github.com/pbriggs28/edu-java-spring-cloud-config-server-props
+#              clone-on-start: true
+              
+            
+#          Detect invalid configuraiton on start up (fail-fast) 
+#          clone-on-start: true
+          
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true

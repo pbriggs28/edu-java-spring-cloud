@@ -1,0 +1,4 @@
+# Allow access to Actuator endpoints
+management:
+  security:
+    enabled: false

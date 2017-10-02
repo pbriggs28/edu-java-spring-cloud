@@ -1,0 +1,15 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+    
+      # ====== Not parsing EL for some reason ======
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # Error messages:
+      # c.n.eureka.cluster.PeerEurekaNodes       : Cannot parse service URI http://${eureka.instance.hostname}:${server.port}/eureka/
+      # java.net.URISyntaxException: Illegal character in authority at index 7: http://${eureka.instance.hostname}:${server.port}/eureka/
+      
+      defaultZone: ${EUREKEA_URI:http://localhost:8761/eureka}

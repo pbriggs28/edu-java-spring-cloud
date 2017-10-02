@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: client1
+  profiles:
+    active:
+    - local
+    - dev

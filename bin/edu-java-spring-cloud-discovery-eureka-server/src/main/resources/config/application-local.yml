@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    include:
+    # Allow developers to create a local-gitignore.yml/properties file that will not be checked in to git
+    - local-gitignore
+    
+  devtools:
+    livereload:
+      enabled: false
+  
+# Allow access to Actuator endpoints
+management:
+  security:
+    enabled: false
+    
+  

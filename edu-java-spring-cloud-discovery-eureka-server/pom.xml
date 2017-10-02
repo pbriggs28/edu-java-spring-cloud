@@ -3,43 +3,40 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.prestonb</groupId>
-	<artifactId>edu-java-spring-cloud</artifactId>
+	<groupId>com.prestonb.edu</groupId>
+	<artifactId>edu-java-spring-cloud-discovery-eureka-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
-	<name>edu-java-spring-cloud</name>
-	
+	<name>edu-java-spring-cloud-discovery-eureka-server</name>
+	<description>Demo project for Spring Boot</description>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.7.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<groupId>com.prestonb</groupId>
+		<artifactId>edu-java-spring-cloud</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../</relativePath>
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<spring-cloud.version>Dalston.SR3</spring-cloud.version>
 	</properties>
 
 	<dependencies>
-	
-		<!-- Core Dependencies -->
-		<!-- =========================================================================== -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka-server</artifactId>
 		</dependency>
 
-		<!-- Test Dependencies -->
-		<!-- =========================================================================== -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 		
 		
 		<!-- Development Dependencies -->
@@ -55,14 +52,19 @@
 			<optional>true</optional> <!-- Stops this from being applied to child projects unknowingly -->
 		</dependency>
 		
-		<!-- Automatically configures properties metadata from @ConfiguraitonProperties -->
-		<!-- This allows content assist in application.properties files -->
-        <dependency>
-        	<groupId>org.springframework.boot</groupId>
-        	<artifactId>spring-boot-configuration-processor</artifactId>
-        	<optional>true</optional> <!-- Stops this from being applied to child projects unknowingly -->
-        </dependency>
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
