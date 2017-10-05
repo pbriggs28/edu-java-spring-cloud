@@ -67,9 +67,3 @@ spring:
             
 #          Detect invalid configuraiton on start up (fail-fast) 
 #          clone-on-start: true
-          
-
-#eureka:
-#  client:
-#    healthcheck:
-#      enabled: true
