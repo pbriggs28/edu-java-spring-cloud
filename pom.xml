@@ -19,7 +19,10 @@
 	</parent>
 	
 	<modules>
-		<module></module>
+		<module>cloud-client-1</module>
+		<module>cloud-client-2</module>
+		<module>cloud-config-server</module>
+		<module>cloud-eureka-server</module>
 	</modules>
 
 	<properties>
