@@ -1,30 +1,31 @@
 package com.prestonb.edu;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.prestonb.edu.model.UserClient;
-
 @SpringBootApplication
 @EnableEurekaClient
-@EnableFeignClients
 @RestController
-public class EduJavaSpringCloudDiscoveryEurekaClient1 {
+public class CloudClient2App {
 	
-	@Autowired
-	private UserClient userClient;
+	@Value("${helloworld}")
+	private String configServerProp = "default";
 
 	public static void main(String[] args) {
-		SpringApplication.run(EduJavaSpringCloudDiscoveryEurekaClient1.class, args);
+		SpringApplication.run(CloudClient2App.class, args);
 	}
 
 	@RequestMapping("/")
 	public String home() {
-		return "From userClient: " + userClient.helloFeign();
+		return "Config Server Prop: " + configServerProp;
+	}
+
+	@RequestMapping("/hello-feign")
+	public String helloFeign() {
+		return "Hello World";
 	}
 }

@@ -69,7 +69,7 @@ spring:
 #          clone-on-start: true
           
 
-eureka:
-  client:
-    healthcheck:
-      enabled: true
+#eureka:
+#  client:
+#    healthcheck:
+#      enabled: true

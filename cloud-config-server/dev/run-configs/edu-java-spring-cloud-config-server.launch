@@ -6,7 +6,7 @@
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.prestonb.edu.EduJavaSpringCloudConfigServerApplication"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.prestonb.edu.CloudConfigServerApp"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="edu-java-spring-cloud-config-server"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.springframework.ide.eclipse.boot.launch.BootMavenSourcePathProvider"/>
 <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dlogback.statusListenerClass=ch.qos.logback.core.status.OnConsoleStatusListener -Dspring.config.location=${system_property:user.home}/rededge/argiope-config-server/config/ -Dsome.fake.prop.to.handle.noverify.being.appended.when.fast.startup.enabled"/>

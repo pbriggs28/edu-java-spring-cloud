@@ -8,9 +8,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @SpringBootApplication
 @EnableConfigServer
 @EnableEurekaClient
-public class EduJavaSpringCloudConfigServerApplication {
+public class CloudConfigServerApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EduJavaSpringCloudConfigServerApplication.class, args);
+		// TODO: Check if config server username/pw populated. Prompt if not
+		SpringApplication.run(CloudConfigServerApp.class, args);
 	}
 }
