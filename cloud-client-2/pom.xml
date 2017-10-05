@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.prestonb.edu</groupId>
-	<artifactId>edu-java-spring-cloud-config-client</artifactId>
-	<version>0.0.wePSHOT</version>
+	<artifactId>cloud-config-client</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>edu-java-spring-cloud-netflix</name>
