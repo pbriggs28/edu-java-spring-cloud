@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.prestonb.edu</groupId>
-	<artifactId>cloud-config-server</artifactId>
+	<artifactId>cloud-webapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>cloud-config-server</name>
+	<name>cloud-webapp</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -27,14 +27,28 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.prestonb.edu</groupId>
+			<artifactId>cloud-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	
+	
+		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
+			<artifactId>spring-cloud-starter-feign</artifactId>
 		</dependency>
-
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -47,6 +61,7 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional> <!-- Stops this from being applied to child projects unknowingly -->
 		</dependency>
+		
 	</dependencies>
 
 	<dependencyManagement>

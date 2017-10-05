@@ -1,6 +1,6 @@
 spring:
   application:
-    name: task-service
+    name: webapp
   profiles:
     active:
     - local
