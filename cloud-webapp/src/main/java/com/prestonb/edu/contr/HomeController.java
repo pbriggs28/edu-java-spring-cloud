@@ -5,8 +5,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -34,10 +34,16 @@ public class HomeController {
 	}
 	
 	@RequestMapping(path = "/login", method = RequestMethod.POST)
-	public String loginPagePOST(Model model, @RequestBody @Valid UserAuthenticationToken token) {
+	public String loginPagePOST(Model model, @ModelAttribute @Valid UserAuthenticationToken token) {
 		User user = userServiceClient.authenticate(token);
 		model.addAttribute("user", user);
 
 		return "user";
+	}
+
+	@RequestMapping(path = "/login", method = RequestMethod.GET)
+	public String loginPageGETnew(Model model) {
+		model.addAttribute("user", new UserAuthenticationToken());
+		return "login";
 	}
 }

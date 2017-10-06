@@ -13,9 +13,18 @@
     
 </head>
 <body>
-	<h2>Successfully logged in!</h2>
-    <p th:text="'First Name: ' + ${user.firstName}" />
-    <p th:text="'Last Name: ' + ${user.lastName}" />
-    <p th:text="'Username: ' + ${user.username}" />
+    <form action="#" th:action="@{/login}" th:object="${user}" method="post">
+    	<label for="username">
+<!--     		<span th:text="#{user.username}">Username: </span> -->
+    		<span>Username: </span>
+    	</label>
+    	<input type="text" th:field="*{username}"/>
+    	<label for="password">
+<!--     		<span th:text="#{user.password}">Username: </span> -->
+    		<span>Password: </span>
+    	</label>
+    	<input type="text" th:field="*{password}"/>
+    	<button type="submit" name="login">Submit</button>
+    </form>
 </body>
 </html>
