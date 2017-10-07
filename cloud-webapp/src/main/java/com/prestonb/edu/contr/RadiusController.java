@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -14,17 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.prestonb.edu.conf.WebConstants.Models;
 import com.prestonb.edu.conf.WebConstants.RequestMappings;
 import com.prestonb.edu.conf.WebConstants.Views;
-import com.prestonb.edu.domain.RadiusForm;
+import com.prestonb.edu.radius.domain.RadiusForm;
+import com.prestonb.edu.svc.RadiusServiceClient;
 
 @Controller
 public class RadiusController {
 	private Logger log = LoggerFactory.getLogger(getClass());
 	
-//	@RequestMapping(value = RequestMappings.HOME)
-//	public String homePage(ModelMap model) {
-//		
-//		return Redirects.RADIUS;
-//	}
+	@Autowired private RadiusServiceClient radiusServiceClient;
 
 	@RequestMapping(value = RequestMappings.RADIUS, method = RequestMethod.GET)
 	public String radiusPage(ModelMap model) {
@@ -39,8 +37,7 @@ public class RadiusController {
 		if(errors.hasErrors())
 			return Views.RADIUS;
 
-//		model.addAttribute(Models.AREA, radiusService.calculateArea(form.getRadius()));
-		model.addAttribute(Models.AREA, (form.getRadius() * 2) / Math.PI);
+		model.addAttribute(Models.RADIUS, (RadiusForm) radiusServiceClient.calculateRadius(form));
 		
 		return Views.RADIUS;
 	}

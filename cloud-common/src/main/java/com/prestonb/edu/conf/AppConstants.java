@@ -11,7 +11,7 @@ public abstract class AppConstants {
 	public static abstract class SpringApplicationNames {
 		public static final String CONFIG_SERVER = "config-server";
 		public static final String EUREKA_SERVER = "eureka-server";
-		public static final String TASK_SERVICE = "task-service";
+		public static final String RADIUS_SERVICE = "radius-service";
 		public static final String USER_SERVICE = "user-service";
 		public static final String WEBAPP = "webapp";
 	}
