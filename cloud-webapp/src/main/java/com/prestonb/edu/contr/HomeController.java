@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.prestonb.edu.conf.WebConstants.Models;
+import com.prestonb.edu.conf.WebConstants.Redirects;
+import com.prestonb.edu.conf.WebConstants.RequestMappings;
+import com.prestonb.edu.conf.WebConstants.Views;
 import com.prestonb.edu.svc.UserServiceClient;
 import com.prestonb.edu.user.domain.User;
 import com.prestonb.edu.user.domain.UserAuthenticationToken;
@@ -19,31 +22,21 @@ public class HomeController {
 	@Autowired private UserServiceClient userServiceClient;
 
 	@RequestMapping()
-	public String home(Model model) {
-		model.addAttribute("userUrl", "/login/admin/CAFEBABE");
-		return "home";
+	public String redirectAll(Model model) {
+		return Redirects.LOGIN;
+	}
+
+	@RequestMapping(path = RequestMappings.LOGIN, method = RequestMethod.GET)
+	public String loginPageGET(Model model) {
+		model.addAttribute(Models.USER, new UserAuthenticationToken());
+		return Views.LOGIN;
 	}
 	
-	@RequestMapping(path = "/login/{username}/{password}", method = RequestMethod.GET)
-	public String loginPageGET(
-			Model model,
-			@PathVariable(name = "username", required = true) String username, 
-			@PathVariable(name = "password", required = true) String password) {
-		
-		return loginPagePOST(model, new UserAuthenticationToken(username, password));
-	}
-	
-	@RequestMapping(path = "/login", method = RequestMethod.POST)
+	@RequestMapping(path = RequestMappings.LOGIN, method = RequestMethod.POST)
 	public String loginPagePOST(Model model, @ModelAttribute @Valid UserAuthenticationToken token) {
 		User user = userServiceClient.authenticate(token);
-		model.addAttribute("user", user);
+		model.addAttribute(Models.USER, user);
 
-		return "user";
-	}
-
-	@RequestMapping(path = "/login", method = RequestMethod.GET)
-	public String loginPageGETnew(Model model) {
-		model.addAttribute("user", new UserAuthenticationToken());
-		return "login";
+		return Redirects.RADIUS;
 	}
 }

@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 
-    <title>User</title>
+    <title>Login</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>  
@@ -13,18 +13,39 @@
     
 </head>
 <body>
-    <form action="#" th:action="@{/login}" th:object="${user}" method="post">
-    	<label for="username">
-<!--     		<span th:text="#{user.username}">Username: </span> -->
-    		<span>Username: </span>
-    	</label>
-    	<input type="text" th:field="*{username}"/>
-    	<label for="password">
-<!--     		<span th:text="#{user.password}">Username: </span> -->
-    		<span>Password: </span>
-    	</label>
-    	<input type="text" th:field="*{password}"/>
-    	<button type="submit" name="login">Submit</button>
-    </form>
+	<div class="bg-primary" style="height:12em; margin-bottom:5em">
+	</div>
+	<div class="container">
+	    <form action="#" th:action="@{/login}" th:object="${user}" method="post" class="form-horizontal well
+	 	    col-sm-4 col-sm-offset-4
+	 	    col-md-4 col-md-offset-4
+	 	    col-lg-4 col-lg-offset-4">
+ 	    
+ 	    	<div class="text-header">
+	 	    	<h3 class="text-center">Welcome</h3>
+ 	    	</div>
+		    <div class="form-group">
+		    	<label for="username" class="col-md-3 control-label">
+		    		<span>Username: </span>
+		    	</label>
+		    	<div class="col-md-9">
+			    	<input type="text" name="username" th:value="admin" class="form-control"/>
+		    	</div>
+		    </div>
+		    <div class="form-group">
+		    	<label for="password" class="col-md-3 control-label">
+		    		<span>Password: </span>
+		    	</label>
+		    	<div class="col-md-9">
+			    	<input type="password" name="password" th:value="CAFEBABE" class="form-control"/>
+		    	</div>
+		    </div>
+		    <div class="form-group" style="margin-top: 70px">
+		        <div class="col-md-4 col-md-offset-8">
+		            <button type="submit" name="login" class="btn btn-primary pull-right form-control">Submit</button>
+		        </div>
+		    </div>
+	    </form>
+	</div>
 </body>
 </html>
