@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
-public class CloudTaskServiceApp {
+public class CloudRadiusServiceApp {
 	
 	@Value("${helloworld}")
 	private String configServerProp = "default";
 
 	public static void main(String[] args) {
-		SpringApplication.run(CloudTaskServiceApp.class, args);
+		SpringApplication.run(CloudRadiusServiceApp.class, args);
 	}
 
 	@RequestMapping("/")

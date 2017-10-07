@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.prestonb.edu</groupId>
-	<artifactId>cloud-task-service</artifactId>
+	<artifactId>cloud-radius-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>edu-java-spring-cloud-netflix</name>
+	<name>cloud-radius-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>

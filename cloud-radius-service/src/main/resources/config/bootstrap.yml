@@ -1,6 +1,6 @@
 spring:
   application:
-    name: task-service
+    name: radius-service
   profiles:
     active:
     - local
