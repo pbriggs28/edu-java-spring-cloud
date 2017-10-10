@@ -7,6 +7,8 @@ spring:
     - dev
     - standalone
 
+# Get port from config server
 server:
-  port: 8761
+  port: 0
+
 

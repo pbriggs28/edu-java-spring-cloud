@@ -1,3 +1,5 @@
+# Activate standalone profile when a peer Eureka server will not be available
+
 eureka:
   instance:
     hostname: localhost
