@@ -11,12 +11,29 @@
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
     
+    <style type="text/css">
+    	#header {
+    		height:8em;
+    		margin-bottom:5em;
+    	}
+    	#radiusForm {
+    		height: 30em;
+    	}
+    	
+    	#form-msgs {
+    		height: 10em;
+    	}
+    	
+    	.form-header {
+    		margin-bottom: 3em;
+    	}
+    </style>
 </head>
 <body>
-	<div class="bg-primary" style="height:12em; margin-bottom:5em">
+	<div id="header" class="bg-primary">
 	</div>
 	<div class="container">
-	    <form action="#" th:action="@{/login}" th:object="${user}" method="post" class="form-horizontal well
+	    <form id="loginForm" action="#" th:action="@{/login}" th:object="${user}" method="post" class="form-horizontal well
 	 	    col-sm-4 col-sm-offset-4
 	 	    col-md-4 col-md-offset-4
 	 	    col-lg-4 col-lg-offset-4">
@@ -40,6 +57,15 @@
 			    	<input type="password" name="password" th:value="CAFEBABE" class="form-control"/>
 		    	</div>
 		    </div>
+		    
+		    <div class="form-group">
+		        <div class="col-md-9 col-md-offset-3">
+		            <div id="form-msgs">
+		            	<small class="help-block" th:if="${errMsg}" th:text="${errMsg}"></small>
+		            </div>
+		        </div>
+		    </div>
+		    
 		    <div class="form-group" style="margin-top: 70px">
 		        <div class="col-md-4 col-md-offset-8">
 		            <button type="submit" name="login" class="btn btn-primary pull-right form-control">Submit</button>
@@ -47,5 +73,40 @@
 		    </div>
 	    </form>
 	</div>
+	
+<script th:inline="javascript">
+
+var notEmptyErrMsgUsername = /*[[#{NotBlank.username}]]*/ 'Username must be provided.';
+var notEmptyErrMsgPassword = /*[[#{NotBlank.password}]]*/ 'Password must be provided.';
+
+<!-- Obviously in a real project this would be extracted out into js files -->
+
+$(document).ready(function() {
+    $('#loginForm').bootstrapValidator({
+        container: '#form-msgs',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            username: {
+                validators: {
+                    notEmpty: {
+                        message: notEmptyErrMsgUsername
+                    }
+                }
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: notEmptyErrMsgPassword
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
 </body>
 </html>

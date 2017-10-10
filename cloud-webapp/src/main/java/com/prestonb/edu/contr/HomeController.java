@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,8 +37,20 @@ public class HomeController {
 	}
 	
 	@RequestMapping(path = RequestMappings.LOGIN, method = RequestMethod.POST)
-	public String loginPagePOST(Model model, @ModelAttribute @Valid UserAuthenticationToken token) {
+	public String loginPagePOST(Model model, @ModelAttribute @Valid UserAuthenticationToken token
+			, BindingResult errors) {
+
+		if(errors.hasErrors()) {
+			model.addAttribute(Models.ERROR_MSG, errors.getFieldError().getDefaultMessage());
+			return loginPageGET(model);			
+		}
+		
 		User user = userService.authenticate(token);
+		if(user == null) {
+			model.addAttribute(Models.ERROR_MSG, "Invalid username or password.");
+			return loginPageGET(model);
+		}
+		
 		model.addAttribute(Models.USER, user);
 
 		return Redirects.RADIUS;

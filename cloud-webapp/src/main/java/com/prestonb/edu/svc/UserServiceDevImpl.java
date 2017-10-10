@@ -28,14 +28,19 @@ public class UserServiceDevImpl implements UserService {
 
 	/**
 	 * This service implementation is only active in dev mode. If an error occurs authenticating
-	 * just allow the developer to login anyways.
+	 * just allow the developer to login using dev user anyways.
 	 * @param auth
 	 * @return
 	 */
 	@SuppressWarnings("unused")
 	private User authenticateFallback(UserAuthenticationToken auth) {
 		log.warn("Fault in connection to user service. Falling back to authenticateFallback method");
-		
-		return DevUsers.ValidUser1.user;
+
+		User adminUser = DevUsers.ValidUser1.user;
+		if(adminUser.getUsername().equals(auth.getUsername()) 
+				&& adminUser.getPassword().equals(auth.getPassword()))
+			return adminUser;
+		else
+			return null;
 	}
 }

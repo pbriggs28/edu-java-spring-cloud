@@ -23,5 +23,6 @@ public abstract class WebConstants {
 		public static final String USER = "user";
 		public static final String RADIUS = "radiusForm";
 		public static final String AREA = "area";
+		public static final String ERROR_MSG = "errMsg";
 	}
 }
