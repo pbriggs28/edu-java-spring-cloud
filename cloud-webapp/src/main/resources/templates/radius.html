@@ -72,11 +72,11 @@
 
 <script th:inline="javascript">
 
-<!-- Obviously in a real project this would be extracted out into js files -->
-
 var notEmptyErrMsg = /*[[#{NotNull.radius}]]*/ 'Radius must be provided.';
 var numericErrMsg = /*[[#{typeMismatch.radius}]]*/ 'Radius must be numeric.';
 var betweenErrMsg = /*[[#{Min.radius}]]*/ 'Radius must be between 1 and 100.';
+
+<!-- Obviously in a real project this would be extracted out into js files -->
 
 $(document).ready(function() {
     $('#radiusForm').bootstrapValidator({

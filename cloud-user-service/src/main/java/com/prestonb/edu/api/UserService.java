@@ -19,6 +19,7 @@ public class UserService implements UserApi {
 	@Override
 	public User authenticate(@RequestBody @Valid UserAuthenticationToken creds) {
 		
+		// Temporary stub until DAO implemented
 		if(adminUser.getUsername().equals(creds.getUsername()) 
 				&& adminUser.getPassword().equals(creds.getPassword()))
 			return adminUser;

@@ -21,6 +21,8 @@ spring:
                             # dev,local
                             # preffixedlocal
                             # localsuffixed
+                            
+                            
 #                - '*/local*'
                       # The local profile is the highest (first) defined profile
                         # Matches:
@@ -31,6 +33,8 @@ spring:
                             # dev
                             # dev,local
                             # preffixedlocal
+                            
+                            
 #                - '*/*local'
                       # The local profile is the lowest (last) priority profile
                         # Matches:
@@ -42,6 +46,8 @@ spring:
                             # local,dev
                             # dev,local,otherprof
                             # localsuffixed
+                            
+                            
                 - '*/*local*'
                       # The local profile is active
                         # Matches:

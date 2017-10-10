@@ -9,7 +9,7 @@ import com.prestonb.edu.radius.api.RadiusApi;
 import com.prestonb.edu.radius.domain.RadiusForm;
 
 @RestController
-public class RadiusService implements RadiusApi {
+public class RadiusController implements RadiusApi {
 
 	@Override
 	public RadiusForm calculateRadius(@RequestBody @Valid RadiusForm radiusForm) {

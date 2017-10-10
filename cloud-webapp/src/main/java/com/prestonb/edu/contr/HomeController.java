@@ -26,6 +26,9 @@ public class HomeController {
 		return Redirects.LOGIN;
 	}
 
+	// An illusion of login requirement as a stub until we implement Spring security:
+	// Every page redirects to the login page and upon successful login
+	// we redirect to the radius page
 	@RequestMapping(path = RequestMappings.LOGIN, method = RequestMethod.GET)
 	public String loginPageGET(Model model) {
 		model.addAttribute(Models.USER, new UserAuthenticationToken());

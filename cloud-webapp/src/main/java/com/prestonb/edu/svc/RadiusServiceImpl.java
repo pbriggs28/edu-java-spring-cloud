@@ -24,7 +24,7 @@ public class RadiusServiceImpl implements RadiusService {
 	@SuppressWarnings("unused")
 	private RadiusForm calculateRadiusFallback(RadiusForm radiusForm) {
 		log.warn("Fault in connection to radius service. Falling back to calculateRadiusFallback method");
-		radiusForm.setArea( Math.PI * (radiusForm.getRadius() * radiusForm.getRadius()));
+		radiusForm.setArea(Math.PI * (radiusForm.getRadius() * radiusForm.getRadius()));
 		
 		return radiusForm;
 	}

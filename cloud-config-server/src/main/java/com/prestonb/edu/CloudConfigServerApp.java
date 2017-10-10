@@ -11,7 +11,6 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 public class CloudConfigServerApp {
 
 	public static void main(String[] args) {
-		// TODO: Check if config server username/pw populated. Prompt if not
 		SpringApplication.run(CloudConfigServerApp.class, args);
 	}
 }
