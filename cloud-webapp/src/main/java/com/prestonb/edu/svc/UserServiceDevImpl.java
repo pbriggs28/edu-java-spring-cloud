@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.prestonb.edu.conf.AppConstants.DevUsers;
 import com.prestonb.edu.conf.AppConstants.SpringProfiles;
+import com.prestonb.edu.svc.apiclient.UserServiceClient;
 import com.prestonb.edu.user.domain.User;
 import com.prestonb.edu.user.domain.UserAuthenticationToken;
 

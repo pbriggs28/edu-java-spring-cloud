@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.prestonb.edu.conf.AppConstants.SpringProfiles;
+import com.prestonb.edu.svc.apiclient.UserServiceClient;
 import com.prestonb.edu.user.domain.User;
 import com.prestonb.edu.user.domain.UserAuthenticationToken;
 

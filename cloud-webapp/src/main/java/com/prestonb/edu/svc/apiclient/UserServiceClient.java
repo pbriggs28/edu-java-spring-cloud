@@ -1,4 +1,4 @@
-package com.prestonb.edu.svc;
+package com.prestonb.edu.svc.apiclient;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 

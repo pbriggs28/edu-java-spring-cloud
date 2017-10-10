@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.prestonb.edu.radius.domain.RadiusForm;
+import com.prestonb.edu.svc.apiclient.RadiusServiceClient;
 
 @Service
 public class RadiusServiceImpl implements RadiusService {
