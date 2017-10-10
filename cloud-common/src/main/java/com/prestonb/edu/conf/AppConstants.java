@@ -15,6 +15,18 @@ public abstract class AppConstants {
 		public static final String USER_SERVICE = "user-service";
 		public static final String WEBAPP = "webapp";
 	}
+
+	public static abstract class SpringProfiles {
+		private static final String NOT = "!";
+		
+		public static final String LOCAL = "local";
+		public static final String DEV = "dev";
+		public static final String PROD = "prod";
+		
+		public static final String NOT_LOCAL = NOT + LOCAL;
+		public static final String NOT_DEV = NOT + DEV;
+		public static final String NOT_PROD = NOT + PROD;
+	}
 	
 	public static abstract class DevUsers {
 		public static abstract class ValidUser1 {

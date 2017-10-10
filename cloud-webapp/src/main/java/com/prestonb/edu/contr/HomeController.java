@@ -13,13 +13,13 @@ import com.prestonb.edu.conf.WebConstants.Models;
 import com.prestonb.edu.conf.WebConstants.Redirects;
 import com.prestonb.edu.conf.WebConstants.RequestMappings;
 import com.prestonb.edu.conf.WebConstants.Views;
-import com.prestonb.edu.svc.UserServiceClient;
+import com.prestonb.edu.svc.UserService;
 import com.prestonb.edu.user.domain.User;
 import com.prestonb.edu.user.domain.UserAuthenticationToken;
 
 @Controller
 public class HomeController {
-	@Autowired private UserServiceClient userServiceClient;
+	@Autowired private UserService userService;
 
 	@RequestMapping()
 	public String redirectAll(Model model) {
@@ -34,7 +34,7 @@ public class HomeController {
 	
 	@RequestMapping(path = RequestMappings.LOGIN, method = RequestMethod.POST)
 	public String loginPagePOST(Model model, @ModelAttribute @Valid UserAuthenticationToken token) {
-		User user = userServiceClient.authenticate(token);
+		User user = userService.authenticate(token);
 		model.addAttribute(Models.USER, user);
 
 		return Redirects.RADIUS;

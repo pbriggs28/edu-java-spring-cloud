@@ -13,7 +13,7 @@ public class RadiusService implements RadiusApi {
 
 	@Override
 	public RadiusForm calculateRadius(@RequestBody @Valid RadiusForm radiusForm) {
-		radiusForm.setArea( (radiusForm.getRadius() * 2) / Math.PI);
+		radiusForm.setArea( Math.PI * (radiusForm.getRadius() * radiusForm.getRadius()));
 		
 		return radiusForm;
 	}

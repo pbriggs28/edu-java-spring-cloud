@@ -16,13 +16,13 @@ import com.prestonb.edu.conf.WebConstants.Models;
 import com.prestonb.edu.conf.WebConstants.RequestMappings;
 import com.prestonb.edu.conf.WebConstants.Views;
 import com.prestonb.edu.radius.domain.RadiusForm;
-import com.prestonb.edu.svc.RadiusServiceClient;
+import com.prestonb.edu.svc.RadiusService;
 
 @Controller
 public class RadiusController {
 	private Logger log = LoggerFactory.getLogger(getClass());
 	
-	@Autowired private RadiusServiceClient radiusServiceClient;
+	@Autowired private RadiusService radiusService;
 
 	@RequestMapping(value = RequestMappings.RADIUS, method = RequestMethod.GET)
 	public String radiusPage(ModelMap model) {
@@ -37,7 +37,7 @@ public class RadiusController {
 		if(errors.hasErrors())
 			return Views.RADIUS;
 
-		model.addAttribute(Models.RADIUS, (RadiusForm) radiusServiceClient.calculateRadius(form));
+		model.addAttribute(Models.RADIUS, (RadiusForm) radiusService.calculateRadius(form));
 		
 		return Views.RADIUS;
 	}
