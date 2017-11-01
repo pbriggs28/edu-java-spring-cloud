@@ -19,12 +19,14 @@
 	</parent>
 	
 	<modules>
+		<module>cloud-common</module>
 		<module>cloud-config-server</module>
 		<module>cloud-eureka-server</module>
-		<module>cloud-common</module>
 		
+		<module>cloud-radius-service</module>
 		<module>cloud-user-service</module>
 		<module>cloud-task-service</module>
+		<module>cloud-webapp</module>
 	</modules>
 
 	<properties>
